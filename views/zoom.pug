@@ -1,0 +1,21 @@
+doctype html 
+html 
+    head 
+        meta(charset='utf-8')
+        link(rel="stylesheet", href="/css/zoom.css")
+        
+        title= hello 
+    body 
+        div(class="zoom_btn") 
+            a(href="/")= "back"
+            a(href="/")= "navbar"
+            a(href="/")= "sound"  
+        div(class="color_parent")
+            -for(var i = 0;i < list.length;i++)
+                div(style=`background-color:${list[i]['color']}` class="color_child")  
+                    a(class="copy_btn")
+                        p= "COPY"
+                    p= list[i]["name"]
+        a(class="zoom_bottom-txt" href="https://github.com/jojaeng2")
+            p= "Made By Jojaeng2🥶"
+    script(src='/js/text.js') 
