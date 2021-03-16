@@ -37,7 +37,7 @@ a,a:visited{
     bottom: 0;
     right: 0;
     margin: 10px 10px;
-    transition: all 0.4s ease-in-out;
+    transition: all .4s ease-in-out;
 }
 .zoom_bottom-txt{
     display: flex;
