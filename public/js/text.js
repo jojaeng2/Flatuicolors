@@ -10,8 +10,15 @@ color_child.forEach(item => {
 function Copycolor(){
     var clipboard = new ClipboardJS('.color_child');
     clipboard.on('success',(e)=>{
-        console.log(e);
+        
     })
     clipboard.on('error',(e)=>{
     })
 }
+
+setTimeout(() => {
+    document.body.classList.add("reveal")
+}, 0),
+window.onload.document.addEventListener("click", () => {
+    document.body.classList.toggle("reveal")
+});

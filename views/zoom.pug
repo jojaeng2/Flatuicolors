@@ -2,10 +2,16 @@ doctype html
 html 
     head 
         meta(charset='utf-8')
+        meta(http-equiv="page-enter" content="blendTrans(duration=0.3)")
+        meta(http-equiv="page-exit" content="blendTrans(duration=0.3)")
         link(rel="stylesheet", href="/css/zoom.css")
         
         title= hello 
-    body 
+    body
+        div(id="loader")
+            div
+        div(id="clicked_color")
+            div
         div(class="zoom_btn") 
             a(href="/")= "back"
             a(href="/")= "navbar"

@@ -4,15 +4,17 @@ html
         meta(charset='utf-8')
         link(rel="stylesheet", href="/css/main.css")
         title= home 
-    body 
+    body
+        div(id="loader")
+            div
         div(class="home_title")
             a(href="/") FLAT UI COLORS 2
             h1(class="home_title-second") About
         ul(class="home_ul")
             -for(var i = 0;i < lis.length;i++)
-                a(href="/zoom?id="+lis[i])
+                a(href="/zoom?id="+lis[i] class="color_select")
                     li
                         div(class="home_image-box")
                             img(src= lis[i]+'.png')
                             p= lis[i]
-        
+    script(src="/js/animation.js") 

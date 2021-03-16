@@ -1,6 +1,7 @@
 body{
     color: #ecf0f1;
     background-color: rgba(60,64,198);
+    
 }
 .home_title{
     display: flex;
@@ -17,7 +18,9 @@ body{
     align-items: center;
     justify-content: space-between;
     padding: 0px 210px;
+    flex-wrap: wrap;
 }
+
 .home_image-box{
     width: 310px;
     height: 200px;
@@ -34,4 +37,25 @@ body{
     margin: 0px 8px;
     color: #2a2a2a;
     font-weight: 600;
+}
+
+#loader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+#loader>div {
+    width: 100%;
+    height: 100%;
+    background: white;
+    transition: transform 0.5s ease-in-out;
+}
+body:not(.hidden).reveal #loader>div {
+    transform: translateX(-100%);
+}
+.color_select{
+    padding-bottom: 50px;
 }
