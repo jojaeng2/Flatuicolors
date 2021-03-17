@@ -1,8 +1,14 @@
-const color_child = Array.from(document.querySelectorAll('.color_child')),
-        color_value = document.querySelectorAll('.background_color');
+const color_child = document.querySelectorAll('.color_child');
+
+function init(item){
+    console.log(color_child.item.value);
+}
+
+
 
 color_child.forEach(item => {
     item.addEventListener("click",(e)=>{
+        alert("GOT IT!!");
         Copycolor();
     })
 });
@@ -10,7 +16,6 @@ color_child.forEach(item => {
 function Copycolor(){
     var clipboard = new ClipboardJS('.color_child');
     clipboard.on('success',(e)=>{
-        
     })
     clipboard.on('error',(e)=>{
     })
