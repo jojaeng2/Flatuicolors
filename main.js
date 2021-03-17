@@ -26,7 +26,4 @@ app.get('/zoom',(req,res)=>{
     console.log(jsonFile["Dutch Palette"].length);
 })
 
-
-app.listen(3000,()=>{
-    console.log('Mainjs listening on port 3000!!')
-})
+app.listen(process.env.PORT || 8080)
