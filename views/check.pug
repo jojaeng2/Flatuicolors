@@ -1,0 +1,36 @@
+doctype html 
+html 
+    head 
+        meta(charset='utf-8')
+        link(rel="stylesheet", href="/css/board.css")
+        title= board 
+    body 
+        div(id="loader")
+            div
+        div(class="home_title")
+            a(href="/") FLAT UI COLORS 2
+            h1(class="home_title-second") 
+                a(href="/board") board
+        div(class="board_wrap")
+            div(class="board_box")
+                if description  
+                    div(class="board_button")
+                        form(action="/board/"+description.id+"/delete" method="post") 
+                            div(class="button_wrap")
+                                input(type="submit" value="YES" class="submit_button")
+                        div(class="button_wrap")
+                            a(href="/board/") NO 
+                    div(class="board_top")
+                        ul
+                            li title
+                            li description 
+                            li user 
+                            li created
+                    ul 
+                        li= description.title 
+                        li= description.description
+                        li= description.name 
+                        li= description.created
+                else     
+                    p Do not find page
+                        

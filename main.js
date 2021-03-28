@@ -59,18 +59,6 @@ app.get(["/board","/board/:id"],(req,res)=>{
     })
 })
 
-app.get('/board/:id',(req,res)=>{
-    const id = req.params.id;
-    const sql = 'SELECT * FROM board WHERE id=?';
-    conn.query(sql,[id],(err,row,fields)=>{
-        if(err){
-            console.log(err);
-            res.status(500).send("Internal Server Error");
-        }
-        res.render('')
-    })
-})
-
 app.get('/add',(req,res)=>{
     res.render('add');
 })
@@ -88,6 +76,65 @@ app.post('/add',(req,res)=>{
             res.redirect('/board/'+result.insertId);
         }
     })
+})
+
+app.get('/board/:id/update',(req,res)=>{
+    const id = req.params.id;
+    if(id){
+        const sql = 'SELECT id,title,description,name FROM board WHERE id=?';
+        conn.query(sql,[id],(err,result,fields)=>{
+            if(err){
+                console.log(err);
+                res.status(500).send("Internal Server Error");
+            } else {
+                console.log(result[0]);
+                res.render('update',{list:result[0]});
+            }
+        })
+    } else {
+        console.log("There is no id");
+        res.redirect('/board');
+    } 
+})
+
+app.post('/board/:id/update',(req,res)=>{
+    const id = req.params.id;
+    const title = req.body.title;
+    const description = req.body.description;
+    const name = req.body.name;
+    const sql = "UPDATE board SET title=?,description=?,name=?,created=NOW() WHERE id=?";
+    conn.query(sql,[title,description,name,id],(err,result,fields)=>{
+        if(err){
+            console.log(err);
+            res.status(500).send("Internal Server Error");
+        } else {
+            res.redirect('/board/'+id);
+        }
+    })
+})
+
+app.get(['/board/:id/delete'],(req,res)=>{
+    const id = req.params.id;
+    const sql = 'SELECT id,title,description,name,created FROM board WHERE id=?';
+    conn.query(sql,[id],(err,result,fields)=>{
+        if(err){
+            console.log(err);
+            res.status(500).send("Internal Server Error");
+        }
+        res.render('check',{description:result[0]});
+    })
+})
+
+app.post('/board/:id/delete',(req,res)=>{
+    const id = req.params.id;
+    const sql = 'DELETE FROM board WHERE id=?';
+    conn.query(sql,[id],(err,result,fields)=>{
+        if(err){
+            console.log(err);
+            res.status(500).send("Internal Server Error");
+        }
+        res.redirect("/board");
+    });
 })
 
 app.listen(process.env.PORT || 8080)

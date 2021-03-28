@@ -11,20 +11,21 @@ html
             a(href="/") FLAT UI COLORS 2
             h1(class="home_title-second") 
                 a(href="/board") board
-        form(action="/add" method='post')     
+        form(action="/board/"+list.id+"/update" method='post')     
             div(class="board_wrap")
                 div(class="board_box")
                     div(class="board_button")
                             div(class="button_wrap")
-                                input(type="submit" value="Submit" class="submit_button")
+                                input(type="submit" value="Update" class="submit_button")
                     div(class="board_top")
                         ul
                             li Title
                             li Description 
                             li Name
                 p 
-                    input(type="text" name='title' placeholder='title')
+                    input(type="text" name='title' value=list.title)
                 p 
                     textarea(name="description" placeholder="description")
+                        =list.description
                 p 
-                    input(type="text" name='name' placeholder="name")
+                    input(type="text" name='name' value=list.name)

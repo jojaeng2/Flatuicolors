@@ -14,6 +14,11 @@ html
         div(class="board_wrap")
             div(class="board_box")
                 if description  
+                    div(class="board_button")
+                        div(class="button_wrap")
+                            a(href="/board/"+description.id+"/update") Update 
+                        div(class="button_wrap")
+                            a(href="/board/"+description.id+"/delete") Delete 
                     div(class="board_top")
                         ul
                             li title
