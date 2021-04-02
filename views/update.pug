@@ -22,10 +22,11 @@ html
                             li Title
                             li Description 
                             li Name
-                p 
-                    input(type="text" name='title' value=list.title)
-                p 
-                    textarea(name="description" placeholder="description")
-                        =list.description
-                p 
-                    input(type="text" name='name' value=list.name)
+                div(class="input_wrap")
+                    p 
+                        input(type="text" name='title' value=list.title class="input_title")
+                    p 
+                        textarea(name="description" class="description_title" placeholder="description")
+                            =list.description
+                    p 
+                        input(type="text" name='name' value=list.name class="name_title")
